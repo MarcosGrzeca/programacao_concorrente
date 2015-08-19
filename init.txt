@@ -1,0 +1,18 @@
+Instruções instalar git
+
+mkdir programacao_concorrente_2
+cd programacao_concorrente_2
+git init
+git remote add origin https://github.com/MarcosGrzeca/programacao_concorrente.git
+git pull origin master
+git status
+git push origin master
+
+
+Instalar sublime = utilizar sublime_install
+wget http://c758482.r82.cf2.rackcdn.com/sublime_text_3_build_3083_x32.tar.bz2
+tar -xvjf Sublime\ Text\ 2*.tar.bz2
+mv Sublime\ Text\ 2/ /opt/sublime-text-2/
+ln -s /opt/sublime-text-2 /usr/local/sublime-text-2
+ln -s /usr/local/sublime-text-2/sublime_text /usr/local/bin/sublime_text
+rm Sublime\ Text\ 2*.tar.bz2 
