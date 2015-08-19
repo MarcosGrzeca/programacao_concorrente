@@ -1,0 +1,4 @@
+Para enviar
+git add * (pode-se enviar apenas alguns arquivos, informando o nome do arquivo ao inves do *)
+git commit -m "commit automatico" (substitua commit automatico pela descricao do commit)
+git push origin master
