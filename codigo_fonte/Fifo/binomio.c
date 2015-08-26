@@ -34,26 +34,24 @@ int main(int argc, char const *argv[])
    	mkfifo(fifo, 0666);
 	mkfifo(fifo, 0666);
 
-	shmid = shmget(chave, N, IPC_CREAT | 0600);
-	memoria = shmat(shmid, 0, 0);
-
 	pid = fork();
 	if (pid > 0) {
 		pid = fork();
 		if (pid > 0) {
 			fatnp = fatorial(n-p);
-			wait(NULL);
-			wait(NULL);
-			fatn = memoria[0];
-			fatp = memoria[1];
+			f1 = open("fifo1", O_RDONLY);
+			f2 = open("fifo2", O_RDONLY);
+			read(f1, &fatn, sizeof(int));
+			read(f2, &fatp, sizeof(int));
+			printf("Binomio %s\n", );
 
 			printf("Resultado %f\n", (float)fatn/(fatp*fatnp));
-			shmdt(memoria);
-			shmctl(shmid, IPC_RMID, NULL);
+			close(f2);
+			close(f1);
 		} else {
 			f2 = open("fifo2", O_WRONLY);
 			fatp = fatorial(p);
-			write(f1, fatn, sizeof(int));
+			write(f2, fatn, sizeof(int));
 			close(f2);
 		}
 	} else {
