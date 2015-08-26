@@ -14,5 +14,6 @@ int main(int argc, char const *argv[])
 
 	shmid = shmget(chave, N, IPC_CREAT | 0600);
 
+	shmctl(shmid, IPC_RMID, NULL);
 	return 0;
 }
