@@ -1,0 +1,1 @@
+cmd_/home/almartin/speaker/speaker.ko := ld -r -m elf_x86_64 -T /usr/src/kernels/3.11.4-201.fc19.x86_64/scripts/module-common.lds --build-id  -o /home/almartin/speaker/speaker.ko /home/almartin/speaker/speaker.o /home/almartin/speaker/speaker.mod.o

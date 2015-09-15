@@ -1,0 +1,1 @@
+cmd_/home/linf/driver/driver.ko := ld -r -m elf_i386 -T /usr/src/linux-3.2.1/scripts/module-common.lds --build-id  -o /home/linf/driver/driver.ko /home/linf/driver/driver.o /home/linf/driver/driver.mod.o

@@ -1,0 +1,1 @@
+cmd_/home/almartin/speaker/driver.ko := ld -r -m elf_x86_64 -T /usr/src/kernels/3.11.4-201.fc19.x86_64/scripts/module-common.lds --build-id  -o /home/almartin/speaker/driver.ko /home/almartin/speaker/driver.o /home/almartin/speaker/driver.mod.o

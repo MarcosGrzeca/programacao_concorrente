@@ -1,0 +1,1 @@
+cmd_/home/linf/speaker/driver.ko := ld -r -m elf_i386 -T /usr/src/linux-3.2.1/scripts/module-common.lds --build-id  -o /home/linf/speaker/driver.ko /home/linf/speaker/driver.o /home/linf/speaker/driver.mod.o

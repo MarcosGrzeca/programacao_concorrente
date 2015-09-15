@@ -1,0 +1,1 @@
+cmd_/home/unid/ccet/dein/almartin/speaker/driver.ko := ld -r -m elf_i386 -T /usr/src/linux-3.2.1/scripts/module-common.lds --build-id  -o /home/unid/ccet/dein/almartin/speaker/driver.ko /home/unid/ccet/dein/almartin/speaker/driver.o /home/unid/ccet/dein/almartin/speaker/driver.mod.o
