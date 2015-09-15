@@ -1,0 +1,1 @@
+cmd_/home/linf/Fontes_camadas/hello/hello.ko := ld -r -m elf_i386 -T /usr/src/linux-3.2.1/scripts/module-common.lds --build-id  -o /home/linf/Fontes_camadas/hello/hello.ko /home/linf/Fontes_camadas/hello/hello.o /home/linf/Fontes_camadas/hello/hello.mod.o
