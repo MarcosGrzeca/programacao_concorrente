@@ -15,8 +15,8 @@ void speaker(unsigned int freq, unsigned int delay){
 	bit=inb(0x61);
 	printk(" %d \n",bit);
 	outb(3 | bit,0x61); 
-	mdelay(delay);
-	outb(0xfc | bit,0x61);  
+	mdelay(delay * 5);
+	outb(0xfc | bit,0x61);
 }
 
 void play(unsigned int *freq, unsigned int *time){
@@ -50,7 +50,7 @@ void initSpeaker(){
 		12,12,38,12,25,12,12,38,12,25,25,100
 	};
  
-	outb(0x0 ,0x61);  
+	outb(0x0 ,0x61);
 	play(freq, time);
 }
 
@@ -67,4 +67,7 @@ int init_module(void) {
 
 void cleanup_module (void) {
 	printk ("Goodbye World (Tchau)\n");
+	int bit;
+	bit=inb(0x61);
+	outb(0xfc | bit,0x61);
 }
