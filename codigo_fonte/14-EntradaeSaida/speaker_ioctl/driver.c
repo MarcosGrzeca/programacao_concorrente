@@ -33,7 +33,7 @@ static int device_open(struct inode *inode, struct file *file); //Sempre que ten
 static int device_release(struct inode *inode, struct file *file);
 static ssize_t device_read(struct file *file, char __user *buffer, size_t length,loff_t * offset);
 static ssize_t device_write(struct file *file, const char __user * buffer, size_t length, loff_t * offset);
-long device_ioctl(struct file *file, unsigned int ioctl_num, unsigned long ioctl_param);
+long device_ioctl(struct file *file, unsigned int ioctl_num, unsigned long ioctl_param); //Switch
 /*----------------------------------------------------------------------------*/
 
 module_init(init_device);
