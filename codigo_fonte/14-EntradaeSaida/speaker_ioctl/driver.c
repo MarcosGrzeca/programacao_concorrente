@@ -29,7 +29,7 @@ MODULE_DESCRIPTION("Disciplina SO");
 
 int init_device(void);
 void cleanup_device(void);
-static int device_open(struct inode *inode, struct file *file);
+static int device_open(struct inode *inode, struct file *file); //Sempre que tenta ler e escrever
 static int device_release(struct inode *inode, struct file *file);
 static ssize_t device_read(struct file *file, char __user *buffer, size_t length,loff_t * offset);
 static ssize_t device_write(struct file *file, const char __user * buffer, size_t length, loff_t * offset);
@@ -76,20 +76,15 @@ void speaker(int delay){
 
 /*----------------------------------------------------------------------------*/
 int init_device(){
-
 	int ret;
-
 	ret = register_chrdev(DEVICE, DEVICE_NAME, &fops);
-
 	if (ret < 0) {
 		printk("Erro ao carregar o dispositivo %d\n.",DEVICE);	
 		return ret;
 	}
 
 	speaker(100);
-
 	printk("O dispositivo %d foi carregado.\n", DEVICE);
-
 	return 0;
 }
 
@@ -158,7 +153,6 @@ long device_ioctl(struct file *file, unsigned int ioctl_num, unsigned long ioctl
 	int i;
 	char *temp = NULL, ch;
 
-
 	switch (ioctl_num) {
 
 		case IOCTL_SET_SPEAKER: 
@@ -177,7 +171,4 @@ long device_ioctl(struct file *file, unsigned int ioctl_num, unsigned long ioctl
 	return SUCCESS;
 }
 
-
 /*----------------------------------------------------------------------------*/
-
-

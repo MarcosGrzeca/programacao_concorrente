@@ -1,2 +1,5 @@
 make
 sudo insmod hello.ko
+
+mknod /dev/so c 50 0
+echo "300" > /dev/so

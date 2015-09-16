@@ -1,8 +1,8 @@
-cmd_/home/unid/ccet/dein/almartin/speaker/driver.o := gcc -Wp,-MD,/home/unid/ccet/dein/almartin/speaker/.driver.o.d  -nostdinc -isystem /usr/lib/gcc/i486-linux-gnu/4.4.5/include -I/usr/src/linux-3.2.1/arch/x86/include -Iarch/x86/include/generated -Iinclude  -include /usr/src/linux-3.2.1/include/linux/kconfig.h -D__KERNEL__ -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -Os -m32 -msoft-float -mregparm=3 -freg-struct-return -mpreferred-stack-boundary=2 -march=i686 -mtune=generic -Wa,-mtune=generic32 -ffreestanding -fstack-protector -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -pipe -Wno-sign-compare -fno-asynchronous-unwind-tables -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -Wframe-larger-than=1024 -fomit-frame-pointer -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack  -DMODULE  -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(driver)"  -D"KBUILD_MODNAME=KBUILD_STR(driver)" -c -o /home/unid/ccet/dein/almartin/speaker/.tmp_driver.o /home/unid/ccet/dein/almartin/speaker/driver.c
+cmd_/home/unid/ccet/ccom/magrzeca/programacao_concorrente/codigo_fonte/14-EntradaeSaida/speaker_ioctl/driver.o := gcc -Wp,-MD,/home/unid/ccet/ccom/magrzeca/programacao_concorrente/codigo_fonte/14-EntradaeSaida/speaker_ioctl/.driver.o.d  -nostdinc -isystem /usr/lib/gcc/i486-linux-gnu/4.4.5/include -I/usr/src/linux-3.2.1/arch/x86/include -Iarch/x86/include/generated -Iinclude  -include /usr/src/linux-3.2.1/include/linux/kconfig.h -D__KERNEL__ -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -Os -m32 -msoft-float -mregparm=3 -freg-struct-return -mpreferred-stack-boundary=2 -march=i686 -mtune=generic -Wa,-mtune=generic32 -ffreestanding -fstack-protector -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -pipe -Wno-sign-compare -fno-asynchronous-unwind-tables -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -Wframe-larger-than=1024 -fomit-frame-pointer -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack  -DMODULE  -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(driver)"  -D"KBUILD_MODNAME=KBUILD_STR(driver)" -c -o /home/unid/ccet/ccom/magrzeca/programacao_concorrente/codigo_fonte/14-EntradaeSaida/speaker_ioctl/.tmp_driver.o /home/unid/ccet/ccom/magrzeca/programacao_concorrente/codigo_fonte/14-EntradaeSaida/speaker_ioctl/driver.c
 
-source_/home/unid/ccet/dein/almartin/speaker/driver.o := /home/unid/ccet/dein/almartin/speaker/driver.c
+source_/home/unid/ccet/ccom/magrzeca/programacao_concorrente/codigo_fonte/14-EntradaeSaida/speaker_ioctl/driver.o := /home/unid/ccet/ccom/magrzeca/programacao_concorrente/codigo_fonte/14-EntradaeSaida/speaker_ioctl/driver.c
 
-deps_/home/unid/ccet/dein/almartin/speaker/driver.o := \
+deps_/home/unid/ccet/ccom/magrzeca/programacao_concorrente/codigo_fonte/14-EntradaeSaida/speaker_ioctl/driver.o := \
   include/linux/kernel.h \
     $(wildcard include/config/lbdaf.h) \
     $(wildcard include/config/preempt/voluntary.h) \
@@ -525,8 +525,8 @@ deps_/home/unid/ccet/dein/almartin/speaker/driver.o := \
   include/linux/delay.h \
   /usr/src/linux-3.2.1/arch/x86/include/asm/delay.h \
   include/asm-generic/delay.h \
-  /home/unid/ccet/dein/almartin/speaker/driver.h \
+  /home/unid/ccet/ccom/magrzeca/programacao_concorrente/codigo_fonte/14-EntradaeSaida/speaker_ioctl/driver.h \
 
-/home/unid/ccet/dein/almartin/speaker/driver.o: $(deps_/home/unid/ccet/dein/almartin/speaker/driver.o)
+/home/unid/ccet/ccom/magrzeca/programacao_concorrente/codigo_fonte/14-EntradaeSaida/speaker_ioctl/driver.o: $(deps_/home/unid/ccet/ccom/magrzeca/programacao_concorrente/codigo_fonte/14-EntradaeSaida/speaker_ioctl/driver.o)
 
-$(deps_/home/unid/ccet/dein/almartin/speaker/driver.o):
+$(deps_/home/unid/ccet/ccom/magrzeca/programacao_concorrente/codigo_fonte/14-EntradaeSaida/speaker_ioctl/driver.o):
