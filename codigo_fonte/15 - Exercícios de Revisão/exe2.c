@@ -1,8 +1,6 @@
 #include <stdio.h>
-#include <sys/types.h>
-#include <sys/msg.h>
+#include <string.h>
 #include <unistd.h>
-#include <stdio.h>
 
 #define TAM 50
 
