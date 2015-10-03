@@ -5,8 +5,7 @@
 #include <stdio.h>
 #include <math.h>
 
-#define KEY 10
-
+#define KEY 16
 
 struct msg
 {
@@ -21,14 +20,6 @@ int primo(int n){
 		return(0);
 	}
 
-	if ( n == 2){
-		return(1);
-	}
-
-	if ( n % 2 == 0){
-		return(0);
-	}
-
 	for (i=2; i<=sqrt(n); i++){
 		if ( !(n % i) ){
 			return(0);
@@ -37,17 +28,17 @@ int primo(int n){
 	return (1);
 }
 
-void int main(int argc, char const *argv[])
+void main(int argc, char const *argv[])
 {
 
-	int vetor[1000], i, totalPrimos = 0, fila;
+	int vetor[11], i, totalPrimos = 0, fila;
 	struct msg msg;
 	
 	fila = msgget(KEY,0600|IPC_CREAT);
 
 	srand(time(NULL));
-	for (i = 0; i < 1000; i++) {
-		vetor[i] = rand() % 100;
+	for (i = 0; i < 11; i++) {
+		vetor[i] = rand() % 10;
 	}
 
 	pid_t p1, p2;
@@ -56,24 +47,34 @@ void int main(int argc, char const *argv[])
 	if (p1 > 0) {
 		p2 = fork();
 		if (p2 > 0) {
-			msgrcv(fila, &msg, sizeof(msg.cont),0,0);
+			/*msgrcv(fila, &msg, sizeof(msg.totalPrimos),0,0);
 			totalPrimos = msg.totalPrimos;
-			msgrcv(fila, &msg, sizeof(msg.cont),0,0);
+			msgrcv(fila, &msg, sizeof(msg.totalPrimos),0,0);
 			totalPrimos += msg.totalPrimos;
-			printf("Total primos %i\n", totalPrimos);
-			msgctl(fila, IPC_RMID, NULL);
+			printf("Total primos %i\n", totalPrimos);*/
+
+			int cont = 0;
+			msgrcv(fila,&msg,sizeof(msg.totalPrimos),0,0);
+			cont = msg.totalPrimos;
+			msgrcv(fila,&msg,sizeof(msg.totalPrimos),0,0);
+			cont += msg.totalPrimos;
+			wait(NULL);
+			wait(NULL);
+			msgctl(fila, IPC_RMID, NULL);				
+			printf("Total de primos = %d\n", cont);
 		} else {
-			for (i = 500; i < 1000; i++) {
+			for (i = (N/2); i < N; i++) {
 				totalPrimos += primo(vetor[i]);
 			}
 			msg.totalPrimos = totalPrimos;
-			msgsnd(fila, &msg, sizeof(msg.cont), 0);
+			msg.totalPrimos = 1;
+			msgsnd(fila,&msg,sizeof(msg.totalPrimos),0);
 		}
 	} else {
-		for (i = 0; i < 500; i++) {
+		for (i = 0; i < (N/2); i++) {
 			totalPrimos += primo(vetor[i]);
 		}
 		msg.totalPrimos = totalPrimos;
-		msgsnd(fila,&msg,sizeof(msg.cont),0);
+		msgsnd(fila,&msg,sizeof(msg.totalPrimos),0);
 	}
 }
