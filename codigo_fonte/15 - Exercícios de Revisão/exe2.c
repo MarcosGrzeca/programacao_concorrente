@@ -4,7 +4,7 @@
 
 #define TAM 50
 
-int numeroVogais(char frase, inicio, fim) {
+int numeroVogais(char frase[TAM], int inicio, int fim) {
 	int i, nroVogais = 0;
 	for (i = inicio; i < fim; i++) {
 		if (frase[i] == 'a' || frase[i] == 'A' || 
@@ -43,7 +43,7 @@ void main(int argc, char const *argv[])
 
 		nroVogais = numeroVogais(string, 0, strlen(string) / 2);
 		int nroVogaisFilho;
-		read(fd[0], nroVogaisFilho, sizeof(int));
+		read(fd[0], &nroVogaisFilho, sizeof(int));
 		nroVogais += nroVogaisFilho;
 		printf("Total vogais %i / %i \n", nroVogais, strlen(string));
 		close(fd[1]);
@@ -51,6 +51,6 @@ void main(int argc, char const *argv[])
     } else {
     	close(fd[0]);
     	nroVogais = numeroVogais(string, strlen(string) / 2, strlen(string));
-    	write(fd[1], nroVogais, sizeof(int));
+    	write(fd[1], &nroVogais, sizeof(int));
     }
 }
