@@ -33,10 +33,10 @@ void main(int argc, char const *argv[])
 	pid_t p1, p2;
 	double x;
 	int shmid,n;
-	double *memoria
+	double *memoria;
 
-	printf("Digite x e n ");
-	scanf("%d %d", &x, &n);
+	printf("Digite x e n:\n");
+	scanf("%lf %d", &x, &n);
 
 	x = (x * PI)/180;
 
@@ -45,7 +45,7 @@ void main(int argc, char const *argv[])
 		printf("Erro na criação da area de memoria");
 	}
 
-	memoria = shmmat(shmid, 0, 0);
+	memoria = shmat(shmid, 0, 0);
 	if (memoria < 0) {
 		printf("Erro na alocacao da area de memoria");	
 	}
