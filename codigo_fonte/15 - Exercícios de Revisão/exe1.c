@@ -47,12 +47,6 @@ void main(int argc, char const *argv[])
 	if (p1 > 0) {
 		p2 = fork();
 		if (p2 > 0) {
-			/*msgrcv(fila, &msg, sizeof(msg.totalPrimos),0,0);
-			totalPrimos = msg.totalPrimos;
-			msgrcv(fila, &msg, sizeof(msg.totalPrimos),0,0);
-			totalPrimos += msg.totalPrimos;
-			printf("Total primos %i\n", totalPrimos);*/
-
 			int cont = 0;
 			msgrcv(fila,&msg,sizeof(msg.totalPrimos),0,0);
 			cont = msg.totalPrimos;
