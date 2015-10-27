@@ -70,6 +70,6 @@ int main(int argc, char const *argv[])
 		pthread_join(id[i], NULL);
 		total += args[i].resultado;
 	}
-	printf("Total %f\n", total);
+	printf("Constante %.15f\n", total);
 	return 0;
 }
