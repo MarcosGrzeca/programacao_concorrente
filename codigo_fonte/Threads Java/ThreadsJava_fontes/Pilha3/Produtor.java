@@ -1,0 +1,19 @@
+public class Produtor extends Thread {
+
+	Pilha pilha; 
+	
+	public Produtor(Pilha pilha){
+		this.pilha = pilha;
+	}
+
+	public void run() { 
+		while( true ){
+			try { 
+				this.sleep((long)(Math.random() * 1000)); 
+				pilha.push((int)(Math.random()*1000));
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+		} 
+	}
+}

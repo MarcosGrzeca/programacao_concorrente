@@ -1,0 +1,35 @@
+public class Sincroniza {
+
+	private int id;
+	private int tempo;
+	
+
+	public Teste(int id, int tempo) {                                            
+		this.id = id;
+		this.tempo = tempo;
+	}         
+                                                                    
+	public void run(){
+		sicroniza();
+	}	
+
+	
+	private synchronized void sincroniza(){
+	
+		
+
+	}                                                                                 
+                                              
+
+
+	
+
+	public static void main ( String [] args ){
+		Sincroniza s1 = new Sincroniza(0,1000);
+		Sincroniza s2 = new Sincroniza(1,1000);
+		Sincroniza s3 = new Sincroniza(2,1000);
+		s1.start();
+		s2.start();
+		s3.start();
+	}
+}

@@ -1,0 +1,33 @@
+public class Pilha {                                                
+	private int [] pilha;                                     
+	private int indice;
+	private int tam; 
+
+	public Pilha(int tam) {                                            
+		this.indice = 0;
+		this.tam = tam;
+		this.pilha = new int[tam];                                                             
+	}         
+                                                                    
+	public synchronized void push(int num) throws Exception {                                                                                                         
+		if ( indice == tam-1)
+			this.wait();
+		System.out.println("Produzindo: " + num );
+		pilha[indice] = num;                                                         
+		indice++;
+		this.notifyAll();
+	}                                                                                 
+
+	public synchronized void pop() throws Exception {                                        
+		if (indice == 0 ) 
+			this.wait();
+		indice--;
+		System.out.println("Consumindo: " + pilha[indice] );
+		this.notifyAll();
+	}                                                                                     
+
+}      
+
+
+
+ 
