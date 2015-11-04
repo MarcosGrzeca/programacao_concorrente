@@ -1,4 +1,4 @@
-public class Classe() {
+public class Classe {
 
 	public String teste;
 
