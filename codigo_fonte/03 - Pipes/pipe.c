@@ -33,4 +33,3 @@ void main(){
 		close(p2[1]);
 	}
 }
-

@@ -24,5 +24,4 @@ int main(){
    close(fr);
    unlink("fifo_pai");
    unlink("fifo_filho");
-
 }

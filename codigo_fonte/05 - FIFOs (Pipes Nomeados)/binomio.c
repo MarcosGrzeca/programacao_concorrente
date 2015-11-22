@@ -31,8 +31,8 @@ int main(int argc, char const *argv[])
 
 	char fifo[N];
 
-   	mkfifo(fifo, 0666);
-	mkfifo(fifo, 0666);
+   	mkfifo("fifo1", 0666);
+	mkfifo("fifo2", 0666);
 
 	pid = fork();
 	if (pid > 0) {
