@@ -34,12 +34,13 @@ int main(int argc, char const *argv[])
 	char str[2000];
 	strcpy(str, "");
 	for (i = 0; i < N; i ++) {
-		sendto(soquete, msg, sizeof(msg), 0, (struct sockaddr *) &servidor, sizeof(servidor));	
+		msg = i;
+		sendto(soquete, &msg, sizeof(msg), 0, (struct sockaddr *) &servidor, sizeof(servidor));	
 	}
 	while (1) {
-		recvfrom(soquete, str, 2000, 0, NULL, NULL);
-		printf("Extraindo \n");
-		sendto(soquete, str, strlen(str) + 1, 0, (struct sockaddr *) &servidor, sizeof(servidor));	
+		recvfrom(soquete, &msg, sizeof(double), 0, NULL, NULL);
+		printf("Recebi o item %f \n", msg);
+		sendto(soquete, &msg, sizeof(double), 0, (struct sockaddr *) &servidor, sizeof(servidor));	
 	}
 	
 	

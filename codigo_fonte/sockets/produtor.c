@@ -6,7 +6,7 @@
 #include "string.h"
 
 #ifndef N
-#define N 60
+#define N 10
 #endif
 
 #ifndef PORTA
@@ -39,11 +39,11 @@ int main(int argc, char **argv)
 
 	while (1) {
 		int tamanho = sizeof(cliente);
-		recvfrom(serv, str, N, 0, (struct sockaddr *) &cliente, &tamanho);
-		printf("Produza\n");
-		sleep(1);
+		recvfrom(serv, &msg, sizeof(double), 0, (struct sockaddr *) &cliente, &tamanho);
+		printf("Produza %f\n", msg);
+		sleep(3);
 		strcpy(str, "Item produzido");
-		sendto(serv, str, strlen(str) + 1, 0, (struct sockaddr *) &cliente, tamanho);
+		sendto(serv, &msg, sizeof(msg), 0, (struct sockaddr *) &cliente, tamanho);
 		close(cliente);
 	}
 	
