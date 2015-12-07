@@ -45,11 +45,11 @@ void main() {
 		argumentos[i]->id = i + 1; 
 		argumentos[i]->termos = termos;
 		argumentos[i]->threads = threads;
-		pthread_create(&id[i], NULL, funcao, (void *) argumentos[i]);
+		pthread_create(&id[i], NULL, funcao, (void *) &argumentos[i]);
 	}
 
 	for (i = 0; i < threads; i++) {
-		pthread_join(id[i], NULL);
+		pthread_join(id[i],NULL);
 		total += argumentos[i]->resultado;
 	}
 
