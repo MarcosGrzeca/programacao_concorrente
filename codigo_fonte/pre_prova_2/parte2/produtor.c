@@ -10,7 +10,7 @@ sem_t temConsumir;
 
 void * produzir(void * args) {
 	int id = (int)args;
-	while (true) {
+	while (1) {
 		sem_wait(&temProduzir);
 		sem_wait(&mutex);
 		quantidade++;
@@ -22,7 +22,7 @@ void * produzir(void * args) {
 
 void * consumir(void * args) {
 	int id = (int)args;
-	while (true) {
+	while (1) {
 		sem_wait(&temConsumir);
 		sem_wait(&mutex);
 		quantidade--;
