@@ -35,9 +35,9 @@ void * consumir(void * args) {
 
 int main(int argc, char const *argv[])
 {
-	sem_init(&mutex, 1);
-	sem_init(&temProduzir, 1);
-	sem_init(&temConsumir, 0);
+	sem_init(&mutex, 0, 1);
+	sem_init(&temProduzir, 0, 1);
+	sem_init(&temConsumir, 0, 0);
 
 	pthread_t consumidores[5];
 	pthread_t produtores[5];
