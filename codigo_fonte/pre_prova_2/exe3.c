@@ -66,7 +66,4 @@ void main()
 	} else {
 		printf("Eh\n");
 	}
-
-
-	
 }
