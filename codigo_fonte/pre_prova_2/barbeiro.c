@@ -24,10 +24,11 @@ void *barbeiro(void *args) {
 		sem_wait(&clientes);
 		sem_wait(&mutex);
 		waiting = waiting-1;
-		printf("Cortando cabelo\n");
 		sem_post(&mutex);
 		sem_post(&barbeiros);
-
+		printf("Cortando cabelo\n");
+		
+		sleep(rand()%10);
 	}
 }
 
@@ -38,7 +39,8 @@ void *cliente(void *args) {
 		sem_post(&clientes);
 		sem_post(&mutex);
 		sem_wait(&barbeiros);
-		printf("ESPERANDO cabelo\n");
+		printf("Sentado e servindo\n");
+		sleep(rand()%3);
 	} else {
 		sem_post(&mutex);
 	}
@@ -48,18 +50,23 @@ void *cliente(void *args) {
 void  main(int argc, char const *argv[])
 {
 
-	sem_init(&mutex, 1);
-	sem_init(&barbeiros, 0);
-	sem_init(&clientes, 0);
+	sem_init(&mutex, 0, 1);
+	sem_init(&barbeiros, 0, 0);
+	sem_init(&clientes, 0, 0);
 	
 	pthread_t ids[CLIENTES+1];
-	int i
+	int i;
 
 	pthread_create(&ids[0], NULL, barbeiro, NULL);
 
 	for (i = 1; i <= CLIENTES; i++)
 	{
-		pthread_create(&ids[0], NULL, cliente, NULL);
+		pthread_create(&ids[i], NULL, cliente, NULL);
+	}
+
+	for (i = 1; i <= CLIENTES; i++)
+	{
+		pthread_join(ids[i], NULL);
 	}
 
 }
